@@ -18,6 +18,7 @@
 #ifndef TIMERH
 #define TIMERH
 
+#include <stdint.h>
 #include <time.h>
 #include <string>
 #ifdef WIN64

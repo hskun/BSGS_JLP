@@ -139,7 +139,7 @@ std::string Timer::getResult(char *unit, int nbTry, double t0, double t1) {
   char tmp[256];
   int pIdx = 0;
   double nbCallPerSec = (double)nbTry / (t1 - t0);
-  while (nbCallPerSec > 1000.0 && pIdx < 5) {
+  while (nbCallPerSec > 1000.0 && pIdx < 7) {
     pIdx++;
     nbCallPerSec = nbCallPerSec / 1000.0;
   }

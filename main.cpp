@@ -23,7 +23,7 @@
 #include <string.h>
 #include <stdexcept>
 
-#define RELEASE "1.1"
+#define RELEASE "JLP 1.2"
 
 using namespace std;
 

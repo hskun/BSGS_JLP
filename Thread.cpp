@@ -182,7 +182,7 @@ void BSGS::Process(TH_PARAM *params,std::string unit) {
 
   while(isAlive(params)) {
 
-    int delay = 2000;
+    int delay = 5000;
     while(isAlive(params) && delay > 0) {
       Timer::SleepMillis(50);
       delay -= 50;

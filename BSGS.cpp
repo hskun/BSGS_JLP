@@ -317,7 +317,7 @@ void BSGS::SolveKey(TH_PARAM *ph) {
   Int km(&ph->startKey);
   km.Neg();
   km.Add(&secp->order);
-  km.Sub((uint64_t)(CPU_GRP_SIZE/2)*bsSize);
+  km.Sub((uint64_t)(CPU_GRP_SIZE/2)*bsSize*2);
   startP = secp->ComputePublicKey(&km);
   startP = secp->AddDirect(keyToSearch,startP);
 
@@ -420,6 +420,7 @@ void BSGS::SolveKey(TH_PARAM *ph) {
       if( hashTable.Get(&pts[i].x,off) ) {
         for(int o=0;o<off.size();o++) {
          Int pk(bsSize);
+         pk.Mult(2);
          Int bigS(&s);
          bigS.Mult((uint64_t)(CPU_GRP_SIZE));
          bigS.Add(i);
@@ -587,6 +588,7 @@ void BSGS::Run(int nbThread) {
 
   // Compute range per thread
   Int bs(bsSize);
+  bs.Mult(2);
   Int nbTh;
   Int r;
   nbTh.SetInt32(nbThread);

@@ -19,9 +19,9 @@ OBJET = $(addprefix $(OBJDIR)/, \
 CXX        = g++
 
 ifdef debug
-CXXFLAGS   = -m64 -mssse3 -Wno-unused-result -Wno-write-strings -g -I. -I$(CUDA)/include
+CXXFLAGS   = -march=native -mtune=native -Wno-unused-result -Wno-write-strings -g -I. -I$(CUDA)/include
 else
-CXXFLAGS   =  -m64 -mssse3 -Wno-unused-result -Wno-write-strings -O2 -I. -I$(CUDA)/include
+CXXFLAGS   = -march=native -mtune=native -Wno-unused-result -Wno-write-strings -O3 -I. -I$(CUDA)/include
 endif
 LFLAGS     = -lpthread
 
