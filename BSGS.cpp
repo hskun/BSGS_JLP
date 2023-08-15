@@ -436,6 +436,19 @@ void BSGS::SolveKey(TH_PARAM *ph) {
            ::printf("       Priv: 0x%s \n",pk.GetBase16().c_str());
            endOfSearch = true;
          }
+         else
+         {
+           bigO.Mult(2);
+           pk.Sub(&bigO);
+           Point p = secp->ComputePublicKey(&pk);
+           if (p.equals(keyToSearch))
+           {
+             // Key solved
+             ::printf("\nKey#%2d Pub:  0x%s \n", keyIdx, secp->GetPublicKeyHex(true, p).c_str());
+             ::printf("       Priv: 0x%s \n", pk.GetBase16().c_str());
+             endOfSearch = true;
+           }
+         }
         }
       }
     }
